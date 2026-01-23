@@ -32,14 +32,15 @@ if ($saved_theme === 'warm') $bg_class = 'bg-warning';
         <?php endif; ?>
 
         <form action="auth.php" method="POST">
-            <div class="mb-3">
-                <label class="form-label text-dark">Email</label>
-                <input type="email" name="email" class="form-control" required>
-            </div>
             
             <div class="mb-3">
                 <label class="form-label text-dark">Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo htmlspecialchars($saved_username); ?>" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-dark">Email</label>
+                <input type="email" name="email" class="form-control" required>
             </div>
 
             <div class="mb-3">
