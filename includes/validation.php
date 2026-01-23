@@ -17,10 +17,26 @@ function validateEmail($email) {
 }
 
 function validatePassword($password) {
-    
-    if (strlen($password) < 6) {
-        return "Password must be at least 6 characters long.";
+    if (strlen($password) < 8) {
+        return "Password must be at least 8 characters long.";
     }
+
+    if (!preg_match('/[A-Z]/', $password)) {
+        return "Password must contain at least one Uppercase letter (A-Z).";
+    }
+
+    if (!preg_match('/[a-z]/', $password)) {
+        return "Password must contain at least one Lowercase letter (a-z).";
+    }
+
+    if (!preg_match('/[0-9]/', $password)) {
+        return "Password must contain at least one Number (0-9).";
+    }
+
+    if (!preg_match('/[\W_]/', $password)) {
+        return "Password must contain at least one Special Character (e.g., @, #, $).";
+    }
+
     return true;
 }
 ?>

@@ -20,24 +20,24 @@ if ($u_valid !== true || $e_valid !== true || $p_valid !== true) {
 $isAuthenticated = false;
 $assigned_theme = 'light'; 
 
-if ($username === 'admin' && $email === 'admin@gmail.com' && $password === 'admin123') {
+if ($username === 'admin' && $email === 'admin@gmail.com' && $password === 'Admin@123') {
     $isAuthenticated = true;
     $assigned_theme = 'light';
-} elseif ($username === 'user1') {
+} elseif ($username === 'user1' && $email === 'user1@gmail.com' && $password === 'User1@123') {
     $isAuthenticated = true;
     $assigned_theme = 'dark';
-} elseif ($username === 'user2') {
+} elseif ($username === 'user2' && $email === 'user2@gmail.com' && $password === 'User2@123') {
     $isAuthenticated = true;
     $assigned_theme = 'warm';
 }
 
 if ($isAuthenticated) {
-    
+
     $_SESSION['username'] = $username;
     $_SESSION['email'] = $email;
     $_SESSION['theme'] = $assigned_theme;
 
-    if ($remember) {
+    if ($remember) {  //remember box checked
         
         setcookie("remember_username", $username, time() + 60, "/");
         setcookie("user_theme", $assigned_theme, time() + 60, "/");
@@ -50,7 +50,7 @@ if ($isAuthenticated) {
         setcookie("user_theme", $assigned_theme, time() + 60, "/"); 
     }
 
-   
+
     header("Location: dashboard.php");
     exit();
 
